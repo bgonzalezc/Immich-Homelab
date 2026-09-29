@@ -48,3 +48,13 @@ Desktop.ini
 # IDEs
 .vscode/
 .idea/
+
+
+# Datos locales generados por los monitores
+data/
+
+
+#config local
+config.json
+
+

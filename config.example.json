@@ -1,0 +1,12 @@
+# ============================================
+# Configuracion
+# ============================================
+
+$RutaBiblioteca = "C:\Immich\library"
+
+# Detectar automaticamente la carpeta del proyecto.
+# $PSScriptRoot apunta a /scripts, por lo que subimos un nivel.
+$RutaProyecto = Split-Path -Parent $PSScriptRoot
+
+$RutaDatos = Join-Path $RutaProyecto "data"
+$ArchivoHistorial = Join-Path $RutaDatos "almacenamiento.csv"
