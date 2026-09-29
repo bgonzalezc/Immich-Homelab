@@ -1,0 +1,50 @@
+# Immich Homelab - Git Ignore
+
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Private credentials
+*.key
+*.pem
+*.pfx
+*.p12
+
+# Immich photo library
+library/
+upload/
+thumbs/
+encoded-video/
+profile/
+
+# Databases
+pgdata/
+*.db
+*.sqlite
+*.sqlite3
+
+# Backups
+backups/
+*.backup
+*.dump
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
