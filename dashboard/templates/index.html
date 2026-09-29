@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Immich Homelab</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div>
+            <div class="marca">
+                <div class="logo">✦</div>
+
+                <div>
+                    <strong>IMMICH</strong>
+                    <span>HOMELAB</span>
+                </div>
+            </div>
+
+            <nav>
+                <button class="nav-item activo">
+                    <span>⌂</span>
+                    Resumen
+                </button>
+
+                <button class="nav-item">
+                    <span>◫</span>
+                    Almacenamiento
+                </button>
+
+                <button class="nav-item">
+                    <span>◇</span>
+                    Servicios
+                </button>
+
+                <button class="nav-item">
+                    <span>↻</span>
+                    Backups
+                </button>
+
+                <button class="nav-item">
+                    <span>☷</span>
+                    Logs
+                </button>
+            </nav>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="version">v0.1</div>
+
+            <div>
+                <strong>Immich Homelab</strong>
+                <span>Infraestructura privada</span>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+        <header class="topbar">
+
+            <div>
+                <p class="eyebrow">INFRAESTRUCTURA PRIVADA</p>
+
+                <h1>Immich Homelab</h1>
+
+                <p class="descripcion">
+                    Monitorización de tu nube privada de fotografías.
+                </p>
+            </div>
+
+            <div id="estadoGeneral" class="estado-general">
+                <span class="estado-punto"></span>
+                Cargando...
+            </div>
+
+        </header>
+
+
+        <!-- MÉTRICAS -->
+        <section class="metricas">
+
+            <article class="metrica">
+                <div class="metrica-cabecera">
+                    <span>Biblioteca</span>
+                    <span class="icono">◫</span>
+                </div>
+
+                <h2 id="biblioteca">--</h2>
+
+                <p>GB almacenados</p>
+            </article>
+
+
+            <article class="metrica">
+                <div class="metrica-cabecera">
+                    <span>Elementos</span>
+                    <span class="icono">◇</span>
+                </div>
+
+                <h2 id="archivos">--</h2>
+
+                <p>archivos locales</p>
+            </article>
+
+
+            <article class="metrica">
+                <div class="metrica-cabecera">
+                    <span>Espacio libre</span>
+                    <span class="icono">○</span>
+                </div>
+
+                <h2 id="libre">--</h2>
+
+                <p>GB disponibles</p>
+            </article>
+
+
+            <article class="metrica">
+                <div class="metrica-cabecera">
+                    <span>Estado</span>
+                    <span class="icono">●</span>
+                </div>
+
+                <h2 id="estado">--</h2>
+
+                <p id="ultimaMedicion">
+                    Esperando datos
+                </p>
+            </article>
+
+        </section>
+
+
+        <!-- ZONA PRINCIPAL -->
+        <section class="grid-principal">
+
+            <!-- GRÁFICO -->
+            <article class="panel grafico-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <p class="eyebrow">
+                            ALMACENAMIENTO
+                        </p>
+
+                        <h3>
+                            Evolución de la biblioteca
+                        </h3>
+                    </div>
+
+                    <div class="mediciones">
+                        <strong id="cantidadMediciones">
+                            --
+                        </strong>
+
+                        <span>
+                            mediciones
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="grafico">
+                    <canvas id="grafico"></canvas>
+                </div>
+
+            </article>
+
+
+            <!-- SERVICIOS -->
+            <article class="panel servicios-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <p class="eyebrow">
+                            SERVICIOS
+                        </p>
+
+                        <h3>
+                            Infraestructura
+                        </h3>
+                    </div>
+                </div>
+
+
+                <div class="lista-servicios">
+
+                    <div class="servicio">
+                        <div>
+                            <strong>Immich Server</strong>
+                            <span>Servidor multimedia</span>
+                        </div>
+
+                        <span class="online">
+                            ● Activo
+                        </span>
+                    </div>
+
+
+                    <div class="servicio">
+                        <div>
+                            <strong>PostgreSQL</strong>
+                            <span>Base de datos</span>
+                        </div>
+
+                        <span class="online">
+                            ● Activo
+                        </span>
+                    </div>
+
+
+                    <div class="servicio">
+                        <div>
+                            <strong>Valkey</strong>
+                            <span>Cache</span>
+                        </div>
+
+                        <span class="online">
+                            ● Activo
+                        </span>
+                    </div>
+
+
+                    <div class="servicio">
+                        <div>
+                            <strong>Machine Learning</strong>
+                            <span>Procesamiento</span>
+                        </div>
+
+                        <span class="online">
+                            ● Activo
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="automatizacion">
+
+                    <div>
+                        <span>Monitor automático</span>
+                        <strong>60 minutos</strong>
+                    </div>
+
+                    <span class="online">
+                        ● Activo
+                    </span>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- DISCO -->
+        <section class="panel disco-panel">
+
+            <div class="disco-info">
+
+                <div>
+                    <p class="eyebrow">
+                        CAPACIDAD
+                    </p>
+
+                    <h3>
+                        Almacenamiento del servidor
+                    </h3>
+                </div>
+
+                <div class="disco-numeros">
+                    <strong id="porcentajeDisco">
+                        --%
+                    </strong>
+
+                    <span>
+                        utilizado
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="barra">
+                <div id="barraDisco"
+                     class="barra-progreso">
+                </div>
+            </div>
+
+
+            <div class="disco-detalle">
+
+                <span>
+                    Utilizado:
+                    <strong id="usado">-- GB</strong>
+                </span>
+
+                <span>
+                    Disponible:
+                    <strong id="libreDetalle">-- GB</strong>
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            Immich Homelab · Dashboard local
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+
+</body>
+</html>

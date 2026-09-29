@@ -1,0 +1,711 @@
+:root {
+    --fondo: #050505;
+    --sidebar: #080808;
+    --panel: rgba(18, 18, 20, 0.78);
+    --panel-hover: rgba(25, 25, 28, 0.85);
+
+    --borde: rgba(255, 255, 255, 0.07);
+    --borde-fuerte: rgba(255, 255, 255, 0.12);
+
+    --texto: #f5f5f7;
+    --texto-secundario: #8e8e93;
+    --texto-terciario: #55555a;
+
+    --verde: #52d273;
+    --amarillo: #f4c95d;
+    --rojo: #ff6363;
+
+    --radio: 18px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+
+body {
+    background:
+        radial-gradient(
+            circle at 70% -20%,
+            rgba(80, 80, 100, 0.08),
+            transparent 35%
+        ),
+        var(--fondo);
+
+    color: var(--texto);
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "Segoe UI",
+        sans-serif;
+}
+
+
+/* APP */
+
+.app {
+    min-height: 100vh;
+    display: grid;
+
+    grid-template-columns:
+        220px
+        minmax(0, 1fr);
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+
+    width: 220px;
+    height: 100vh;
+
+    padding: 28px 18px;
+
+    border-right: 1px solid var(--borde);
+
+    background:
+        rgba(5, 5, 5, 0.82);
+
+    backdrop-filter: blur(25px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.marca {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 8px;
+    margin-bottom: 45px;
+}
+
+
+.logo {
+    width: 37px;
+    height: 37px;
+
+    border: 1px solid var(--borde-fuerte);
+    border-radius: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+
+    background:
+        rgba(255,255,255,0.04);
+}
+
+
+.marca strong {
+    display: block;
+
+    font-size: 13px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.marca span {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: var(--texto-secundario);
+}
+
+
+/* NAV */
+
+nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.nav-item {
+    width: 100%;
+
+    border: none;
+
+    padding: 11px 13px;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: var(--texto-secundario);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    display: flex;
+    gap: 11px;
+
+    transition: 0.2s;
+}
+
+
+.nav-item:hover {
+    background: rgba(255,255,255,0.04);
+    color: white;
+}
+
+
+.nav-item.activo {
+    background: rgba(255,255,255,0.07);
+    color: white;
+}
+
+
+.sidebar-footer {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--texto-secundario);
+}
+
+
+.version {
+    border: 1px solid var(--borde);
+
+    border-radius: 8px;
+
+    padding: 7px;
+
+    font-size: 10px;
+}
+
+
+.sidebar-footer strong {
+    display: block;
+
+    color: #aaa;
+
+    font-size: 10px;
+}
+
+
+.sidebar-footer span {
+    display: block;
+
+    font-size: 9px;
+
+    margin-top: 2px;
+}
+
+
+/* CONTENIDO */
+
+.contenido {
+    grid-column: 2;
+
+    width: 100%;
+
+    max-width: 1500px;
+
+    padding: 48px 55px;
+
+    margin: auto;
+}
+
+
+/* TOPBAR */
+
+.topbar {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 38px;
+}
+
+
+.eyebrow {
+    margin: 0;
+
+    color: var(--texto-terciario);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: 600;
+}
+
+
+h1 {
+    margin: 7px 0 5px;
+
+    font-size: 29px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.7px;
+}
+
+
+.descripcion {
+    margin: 0;
+
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+}
+
+
+.estado-general {
+    padding: 9px 14px;
+
+    border: 1px solid var(--borde);
+
+    border-radius: 30px;
+
+    font-size: 11px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.estado-punto {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--verde);
+}
+
+
+/* MÉTRICAS */
+
+.metricas {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-bottom: 14px;
+}
+
+
+.metrica {
+    min-height: 135px;
+
+    padding: 20px;
+
+    border: 1px solid var(--borde);
+
+    border-radius: var(--radio);
+
+    background: var(--panel);
+
+    backdrop-filter: blur(20px);
+
+    transition: 0.2s;
+}
+
+
+.metrica:hover {
+    border-color: var(--borde-fuerte);
+
+    background: var(--panel-hover);
+
+    transform: translateY(-1px);
+}
+
+
+.metrica-cabecera {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--texto-secundario);
+
+    font-size: 11px;
+}
+
+
+.icono {
+    color: var(--texto-terciario);
+}
+
+
+.metrica h2 {
+    margin: 22px 0 3px;
+
+    font-size: 25px;
+
+    font-weight: 550;
+
+    letter-spacing: -0.6px;
+}
+
+
+.metrica p {
+    margin: 0;
+
+    font-size: 10px;
+
+    color: var(--texto-terciario);
+}
+
+
+/* PANEL */
+
+.panel {
+    border: 1px solid var(--borde);
+
+    border-radius: var(--radio);
+
+    background: var(--panel);
+
+    backdrop-filter: blur(20px);
+
+    padding: 23px;
+}
+
+
+.grid-principal {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.7fr)
+        minmax(280px, 0.7fr);
+
+    gap: 14px;
+
+    margin-bottom: 14px;
+}
+
+
+.panel-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 25px;
+}
+
+
+.panel-header h3,
+.disco-panel h3 {
+    margin: 5px 0 0;
+
+    font-size: 15px;
+
+    font-weight: 500;
+}
+
+
+.mediciones {
+    text-align: right;
+}
+
+
+.mediciones strong {
+    display: block;
+
+    font-size: 15px;
+}
+
+
+.mediciones span {
+    font-size: 9px;
+
+    color: var(--texto-terciario);
+}
+
+
+/* GRÁFICO */
+
+.grafico {
+    height: 290px;
+}
+
+
+/* SERVICIOS */
+
+.lista-servicios {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.servicio {
+    padding: 14px 0;
+
+    border-bottom: 1px solid var(--borde);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.servicio strong {
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+
+.servicio div span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--texto-terciario);
+
+    font-size: 9px;
+}
+
+
+.online {
+    color: var(--verde);
+
+    font-size: 9px;
+}
+
+
+.automatizacion {
+    margin-top: 22px;
+
+    padding: 14px;
+
+    border: 1px solid var(--borde);
+
+    border-radius: 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.automatizacion span {
+    display: block;
+
+    font-size: 9px;
+
+    color: var(--texto-secundario);
+}
+
+
+.automatizacion strong {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+
+/* DISCO */
+
+.disco-panel {
+    margin-bottom: 14px;
+}
+
+
+.disco-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+}
+
+
+.disco-numeros {
+    text-align: right;
+}
+
+
+.disco-numeros strong {
+    display: block;
+
+    font-size: 18px;
+}
+
+
+.disco-numeros span {
+    font-size: 9px;
+
+    color: var(--texto-terciario);
+}
+
+
+.barra {
+    height: 5px;
+
+    margin: 24px 0 12px;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    background: rgba(255,255,255,0.06);
+}
+
+
+.barra-progreso {
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #777,
+            #eee
+        );
+
+    border-radius: inherit;
+
+    transition: width 0.8s ease;
+}
+
+
+.disco-detalle {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--texto-terciario);
+
+    font-size: 9px;
+}
+
+
+.disco-detalle strong {
+    color: var(--texto-secundario);
+
+    font-weight: 500;
+}
+
+
+/* ESTADOS */
+
+.saludable {
+    color: var(--verde);
+}
+
+.advertencia {
+    color: var(--amarillo);
+}
+
+.critico {
+    color: var(--rojo);
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 12px 3px;
+
+    text-align: right;
+
+    color: #333;
+
+    font-size: 9px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+    .metricas {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .grid-principal {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 720px) {
+
+    .app {
+        display: block;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .contenido {
+        padding: 30px 18px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .metricas {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        flex-direction: column;
+    }
+
+    .grafico {
+        height: 230px;
+    }
+}
